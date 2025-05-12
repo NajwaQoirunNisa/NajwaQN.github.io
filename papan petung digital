@@ -1,0 +1,471 @@
+tool_use_id=toolu_vrtx_01QhZDbTn6CwTjJZovQSdGHo
+tool_name=replace_code
+input={"target_code_block_id": "petung_final", "old_str": "        .center-text {\n            position: absolute;\n            top: 50%;\n            left: 50%;\n            transform: translate(-50%, -50%);\n            color: var(--text-color);\n            text-align: center;\n            background-color: var(--circle-color);\n            border: 4px solid var(--border-color);\n            border-radius: 50%;\n            width: 25%;\n            height: 25%;\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            z-index: 10;\n            pointer-events: none;\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n        }", "new_str": "        .center-pattern {\n            position: absolute;\n            top: 50%;\n            left: 50%;\n            transform: translate(-50%, -50%);\n            background-color: var(--circle-color);\n            border: 4px solid var(--border-color);\n            border-radius: 50%;\n            width: 25%;\n            height: 25%;\n            z-index: 10;\n            pointer-events: none;\n            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n            overflow: hidden;\n        }\n        \n        /* Kawung Batik Pattern */\n        .kawung-pattern {\n            position: absolute;\n            width: 100%;\n            height: 100%;\n            top: 0;\n            left: 0;\n        }\n        \n        .kawung-circle {\n            position: absolute;\n            border: 2px solid var(--border-color);\n            border-radius: 50%;\n            background-color: rgba(247, 175, 100, 0.2);\n            width: 60%;\n            height: 60%;\n        }\n        \n        .kawung-circle:nth-child(1) {\n            top: -15%;\n            left: 50%;\n            transform: translateX(-50%);\n        }\n        \n        .kawung-circle:nth-child(2) {\n            bottom: -15%;\n            left: 50%;\n            transform: translateX(-50%);\n        }\n        \n        .kawung-circle:nth-child(3) {\n            top: 50%;\n            left: -15%;\n            transform: translateY(-50%);\n        }\n        \n        .kawung-circle:nth-child(4) {\n            top: 50%;\n            right: -15%;\n            transform: translateY(-50%);\n        }", "new_code_block_id": "petung_kawung"}
+tool_use_id=toolu_vrtx_013h3agM9RDM8uw61wSb6rDf
+tool_name=replace_code
+input={"target_code_block_id": "petung_kawung", "old_str": "        <div class=\"center-text\">PETUNG<br>JAWA</div>", "new_str": "        <div class=\"center-pattern\">\n            <div class=\"kawung-pattern\">\n                <div class=\"kawung-circle\"></div>\n                <div class=\"kawung-circle\"></div>\n                <div class=\"kawung-circle\"></div>\n                <div class=\"kawung-circle\"></div>\n            </div>\n        </div>", "new_code_block_id": "petung_kawung2"}
+tool_use_id=toolu_vrtx_01JghHyLV6biQj3eXMpBj6Uv
+tool_name=replace_code
+input={"target_code_block_id": "petung_kawung2", "old_str": "            days.forEach((day, index) => {\n                    const angle = (index * (360 / days.length)) * (Math.PI / 180);\n                    const x = dayRadius * Math.sin(angle);\n                    const y = -dayRadius * Math.cos(angle);\n                    \n                    const dayItem = document.createElement('div');\n                    dayItem.className = 'day-item';\n                    dayItem.dataset.index = index;\n                    dayItem.style.width = `${dayItemSize}px`;\n                    dayItem.style.height = `${dayItemSize}px`;\n                    \n                    dayItem.innerHTML = `\n                        <div class=\"day-name\">${day.name}</div>\n                        <div class=\"neptu\">${day.neptu}</div>\n                    `;\n                    \n                    // Counter-rotate the text to keep it upright when the circle rotates\n                    const baseAngle = -(index * (360 / days.length));\n                    dayItem.style.transform = `translate(${x}px, ${y}px) rotate(${baseAngle - outerRotation}deg)`;\n                    daysCircle.appendChild(dayItem);\n                });\n                \n                // Adjust pasaran item positioning and sizes\n                const pasaranRadius = containerWidth * 0.20;\n                const pasaranItemSize = Math.max(50, Math.min(70, containerWidth * 0.12));\n                \n                const pasaranItems = pasaranCircle.querySelectorAll('.pasaran-item');\n                pasaranItems.forEach(item => item.remove());\n                \n                pasaran.forEach((item, index) => {\n                    const angle = (index * (360 / pasaran.length)) * (Math.PI / 180);\n                    const x = pasaranRadius * Math.sin(angle);\n                    const y = -pasaranRadius * Math.cos(angle);\n                    \n                    const pasaranItem = document.createElement('div');\n                    pasaranItem.className = 'pasaran-item';\n                    pasaranItem.dataset.index = index;\n                    pasaranItem.style.width = `${pasaranItemSize}px`;\n                    pasaranItem.style.height = `${pasaranItemSize}px`;\n                    \n                    pasaranItem.innerHTML = `\n                        <div class=\"pasaran-name\">${item.name}</div>\n                        <div class=\"neptu\">${item.neptu}</div>\n                    `;\n                    \n                    // Counter-rotate the text to keep it upright when the circle rotates\n                    const baseAngle = -(index * (360 / pasaran.length));\n                    pasaranItem.style.transform = `translate(${x}px, ${y}px) rotate(${baseAngle - innerRotation}deg)`;\n                    pasaranCircle.appendChild(pasaranItem);\n                });", "new_str": "            days.forEach((day, index) => {\n                    const angle = (index * (360 / days.length)) * (Math.PI / 180);\n                    const x = dayRadius * Math.sin(angle);\n                    const y = -dayRadius * Math.cos(angle);\n                    \n                    const dayItem = document.createElement('div');\n                    dayItem.className = 'day-item';\n                    dayItem.dataset.index = index;\n                    dayItem.style.width = `${dayItemSize}px`;\n                    dayItem.style.height = `${dayItemSize}px`;\n                    \n                    // Modify the display of 6 and 9 to differentiate them\n                    let neptuDisplay = day.neptu;\n                    if (day.neptu === 6) {\n                        neptuDisplay = `<span>6<span style=\"display:block;font-size:0.3em;line-height:0;margin-top:-8px;\">__</span></span>`;\n                    } else if (day.neptu === 9) {\n                        neptuDisplay = `<span>9<span style=\"display:block;font-size:0.3em;line-height:0;margin-bottom:-8px;\">__</span></span>`;\n                    }\n                    \n                    dayItem.innerHTML = `\n                        <div class=\"day-name\">${day.name}</div>\n                        <div class=\"neptu\">${neptuDisplay}</div>\n                    `;\n                    \n                    // Calculate angle to make text face outward\n                    // This means the text should be rotated according to their position in the circle\n                    const textAngle = (index * (360 / days.length));\n                    \n                    // Position the item and rotate it to face outward\n                    dayItem.style.transform = `translate(${x}px, ${y}px) rotate(${textAngle}deg)`;\n                    daysCircle.appendChild(dayItem);\n                });\n                \n                // Adjust pasaran item positioning and sizes\n                const pasaranRadius = containerWidth * 0.20;\n                const pasaranItemSize = Math.max(50, Math.min(70, containerWidth * 0.12));\n                \n                const pasaranItems = pasaranCircle.querySelectorAll('.pasaran-item');\n                pasaranItems.forEach(item => item.remove());\n                \n                pasaran.forEach((item, index) => {\n                    const angle = (index * (360 / pasaran.length)) * (Math.PI / 180);\n                    const x = pasaranRadius * Math.sin(angle);\n                    const y = -pasaranRadius * Math.cos(angle);\n                    \n                    const pasaranItem = document.createElement('div');\n                    pasaranItem.className = 'pasaran-item';\n                    pasaranItem.dataset.index = index;\n                    pasaranItem.style.width = `${pasaranItemSize}px`;\n                    pasaranItem.style.height = `${pasaranItemSize}px`;\n                    \n                    // Modify the display of 6 and 9 to differentiate them\n                    let neptuDisplay = item.neptu;\n                    if (item.neptu === 6) {\n                        neptuDisplay = `<span>6<span style=\"display:block;font-size:0.3em;line-height:0;margin-top:-8px;\">__</span></span>`;\n                    } else if (item.neptu === 9) {\n                        neptuDisplay = `<span>9<span style=\"display:block;font-size:0.3em;line-height:0;margin-bottom:-8px;\">__</span></span>`;\n                    }\n                    \n                    pasaranItem.innerHTML = `\n                        <div class=\"pasaran-name\">${item.name}</div>\n                        <div class=\"neptu\">${neptuDisplay}</div>\n                    `;\n                    \n                    // Calculate angle to make text face outward\n                    const textAngle = (index * (360 / pasaran.length));\n                    \n                    // Position the item and rotate it to face outward\n                    pasaranItem.style.transform = `translate(${x}px, ${y}px) rotate(${textAngle}deg)`;\n                    pasaranCircle.appendChild(pasaranItem);\n                });", "new_code_block_id": "petung_outward_text"}
+tool_use_id=toolu_vrtx_01X4oXB5sC9XNgQs2qgyKZBk
+tool_name=replace_code
+input={"target_code_block_id": "petung_outward_text", "old_str": "            // Rotation move handler\n            function rotateElement(event) {\n                if (!isDraggingOuter && !isDraggingInner) return;\n                \n                event.preventDefault();\n                \n                if (isDraggingOuter) {\n                    const currentAngle = getAngle(daysCircle, event);\n                    const angleDiff = currentAngle - startAngle;\n                    outerRotation = startRotation + angleDiff;\n                    daysCircle.style.transform = `rotate(${outerRotation}deg)`;\n                    \n                    // Counter-rotate each day element to keep text upright\n                    const dayItems = daysCircle.querySelectorAll('.day-item');\n                    dayItems.forEach((item, index) => {\n                        const baseAngle = -(index * (360 / days.length));\n                        item.style.transform = item.style.transform.replace(/rotate\\([^)]*\\)/, `rotate(${baseAngle - outerRotation}deg)`);\n                    });\n                    \n                } else if (isDraggingInner) {\n                    const currentAngle = getAngle(pasaranCircle, event);\n                    const angleDiff = currentAngle - startAngle;\n                    innerRotation = startRotation + angleDiff;\n                    // Need to keep the translate transformation for inner circle\n                    pasaranCircle.style.transform = `translate(-50%, -50%) rotate(${innerRotation}deg)`;\n                    \n                    // Counter-rotate each pasaran element to keep text upright\n                    const pasaranItems = pasaranCircle.querySelectorAll('.pasaran-item');\n                    pasaranItems.forEach((item, index) => {\n                        const baseAngle = -(index * (360 / pasaran.length));\n                        item.style.transform = item.style.transform.replace(/rotate\\([^)]*\\)/, `rotate(${baseAngle - innerRotation}deg)`);\n                    });\n                }\n            }", "new_str": "            // Rotation move handler\n            function rotateElement(event) {\n                if (!isDraggingOuter && !isDraggingInner) return;\n                \n                event.preventDefault();\n                \n                if (isDraggingOuter) {\n                    const currentAngle = getAngle(daysCircle, event);\n                    const angleDiff = currentAngle - startAngle;\n                    outerRotation = startRotation + angleDiff;\n                    daysCircle.style.transform = `rotate(${outerRotation}deg)`;\n                    \n                } else if (isDraggingInner) {\n                    const currentAngle = getAngle(pasaranCircle, event);\n                    const angleDiff = currentAngle - startAngle;\n                    innerRotation = startRotation + angleDiff;\n                    // Need to keep the translate transformation for inner circle\n                    pasaranCircle.style.transform = `translate(-50%, -50%) rotate(${innerRotation}deg)`;\n                }\n            }", "new_code_block_id": "petung_simplify_rotate"}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papan Petung Digital Jawa</title>
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --circle-color: #B40009;
+            --border-color: #F7AF64;
+            --text-color: #FFC700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'MedievalSharp', cursive;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+            padding: 20px;
+            user-select: none;
+            touch-action: none;
+        }
+
+        .petung-container {
+            position: relative;
+            width: min(90vw, 600px);
+            height: min(90vw, 600px);
+            margin-bottom: 20px;
+        }
+
+        .outer-circle, .inner-circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: var(--circle-color);
+            border: 8px solid var(--border-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.1s ease;
+            cursor: grab;
+        }
+
+        .outer-circle:active, .inner-circle:active {
+            cursor: grabbing;
+        }
+
+        .outer-circle {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .inner-circle {
+            width: 55%;
+            height: 55%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+        }
+
+        .day-item, .pasaran-item {
+            position: absolute;
+            color: var(--text-color);
+            text-align: center;
+            transform-origin: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            width: 100px;
+            height: 100px;
+        }
+
+        .day-name, .pasaran-name {
+            margin-bottom: 4px;
+            font-weight: bold;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        .neptu {
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            min-width: 26px;
+            min-height: 26px;
+            line-height: 1;
+        }
+
+        .center-pattern {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: var(--circle-color);
+            border: 4px solid var(--border-color);
+            border-radius: 50%;
+            width: 25%;
+            height: 25%;
+            z-index: 10;
+            pointer-events: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        /* Kawung Batik Pattern */
+        .kawung-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        
+        .kawung-circle {
+            position: absolute;
+            border: 2px solid var(--border-color);
+            border-radius: 50%;
+            background-color: rgba(247, 175, 100, 0.2);
+            width: 60%;
+            height: 60%;
+        }
+        
+        .kawung-circle:nth-child(1) {
+            top: -15%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .kawung-circle:nth-child(2) {
+            bottom: -15%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .kawung-circle:nth-child(3) {
+            top: 50%;
+            left: -15%;
+            transform: translateY(-50%);
+        }
+        
+        .kawung-circle:nth-child(4) {
+            top: 50%;
+            right: -15%;
+            transform: translateY(-50%);
+        }
+
+        .alignment-indicator {
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            height: 100%;
+            width: 2px;
+            background-color: var(--border-color);
+            z-index: 1;
+            pointer-events: none;
+            box-shadow: 0 0 5px rgba(255, 199, 0, 0.5);
+        }
+
+        .instructions {
+            color: #333;
+            text-align: center;
+            margin-top: 10px;
+            max-width: 600px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Responsive font sizing */
+        @media (min-width: 481px) {
+            .day-name, .pasaran-name {
+                font-size: clamp(0.9rem, 2vw, 1.4rem);
+            }
+            .neptu {
+                font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+                width: clamp(30px, 5vw, 40px);
+                height: clamp(30px, 5vw, 40px);
+            }
+            .center-text {
+                font-size: clamp(1rem, 2vw, 1.6rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .day-name, .pasaran-name {
+                font-size: 0.8rem;
+            }
+            .neptu {
+                font-size: 1rem;
+                width: 24px;
+                height: 24px;
+            }
+            .center-text {
+                font-size: 0.9rem;
+            }
+            .instructions {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="petung-container">
+        <div class="alignment-indicator"></div>
+        <div class="outer-circle" id="days-circle">
+            <!-- Days will be added here via JavaScript -->
+        </div>
+        <div class="inner-circle" id="pasaran-circle">
+            <!-- Pasaran will be added here via JavaScript -->
+        </div>
+        <div class="center-pattern">
+            <div class="kawung-pattern">
+                <div class="kawung-circle"></div>
+                <div class="kawung-circle"></div>
+                <div class="kawung-circle"></div>
+                <div class="kawung-circle"></div>
+            </div>
+        </div>
+    </div>
+    <div class="instructions">
+        Putar lingkaran luar dan dalam untuk menyesuaikan hari dan pasaran.<br>
+        Contoh: Untuk mencari Minggu Pon, putar keduanya hingga sejajar pada garis vertikal.
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Days of the week with their neptu values
+            const days = [
+                { name: "SENIN", neptu: 4 },
+                { name: "SELASA", neptu: 3 },
+                { name: "RABU", neptu: 7 },
+                { name: "KAMIS", neptu: 8 },
+                { name: "JUMAT", neptu: 6 },
+                { name: "SABTU", neptu: 9 },
+                { name: "MINGGU", neptu: 5 }
+            ];
+
+            // Pasaran Jawa with their neptu values
+            const pasaran = [
+                { name: "KLIWON", neptu: 8 },
+                { name: "LEGI", neptu: 5 },
+                { name: "PAHING", neptu: 9 },
+                { name: "PON", neptu: 7 },
+                { name: "WAGE", neptu: 4 }
+            ];
+
+            const daysCircle = document.getElementById('days-circle');
+            const pasaranCircle = document.getElementById('pasaran-circle');
+            
+            // Variables to track rotation
+            let outerRotation = 0;
+            let innerRotation = 0;
+            
+            // Variables to track rotation events
+            let isDraggingOuter = false;
+            let isDraggingInner = false;
+            let startAngle = 0;
+            let startRotation = 0;
+
+            // Calculate appropriate text sizes based on container size
+            function calculateSizes() {
+                const containerWidth = daysCircle.offsetWidth;
+                
+                // Adjust day item positioning and sizes
+                const dayRadius = containerWidth * 0.38; // Slightly reduced for better spacing
+                const dayItemSize = Math.max(60, Math.min(90, containerWidth * 0.15));
+                
+                // Remove any existing items before recreation
+                const existingDayItems = daysCircle.querySelectorAll('.day-item');
+                existingDayItems.forEach(item => item.remove());
+                
+                days.forEach((day, index) => {
+                    const angle = (index * (360 / days.length)) * (Math.PI / 180);
+                    const x = dayRadius * Math.sin(angle);
+                    const y = -dayRadius * Math.cos(angle);
+                    
+                    const dayItem = document.createElement('div');
+                    dayItem.className = 'day-item';
+                    dayItem.dataset.index = index;
+                    dayItem.style.width = `${dayItemSize}px`;
+                    dayItem.style.height = `${dayItemSize}px`;
+                    
+                    // Modify the display of 6 and 9 to differentiate them
+                    let neptuDisplay = day.neptu;
+                    if (day.neptu === 6) {
+                        neptuDisplay = `<span>6<span style="display:block;font-size:0.3em;line-height:0;margin-top:-8px;">__</span></span>`;
+                    } else if (day.neptu === 9) {
+                        neptuDisplay = `<span>9<span style="display:block;font-size:0.3em;line-height:0;margin-bottom:-8px;">__</span></span>`;
+                    }
+                    
+                    dayItem.innerHTML = `
+                        <div class="day-name">${day.name}</div>
+                        <div class="neptu">${neptuDisplay}</div>
+                    `;
+                    
+                    // Calculate angle to make text face outward
+                    // This means the text should be rotated according to their position in the circle
+                    const textAngle = (index * (360 / days.length));
+                    
+                    // Position the item and rotate it to face outward
+                    dayItem.style.transform = `translate(${x}px, ${y}px) rotate(${textAngle}deg)`;
+                    daysCircle.appendChild(dayItem);
+                });
+                
+                // Adjust pasaran item positioning and sizes
+                const pasaranRadius = containerWidth * 0.20;
+                const pasaranItemSize = Math.max(50, Math.min(70, containerWidth * 0.12));
+                
+                const pasaranItems = pasaranCircle.querySelectorAll('.pasaran-item');
+                pasaranItems.forEach(item => item.remove());
+                
+                pasaran.forEach((item, index) => {
+                    const angle = (index * (360 / pasaran.length)) * (Math.PI / 180);
+                    const x = pasaranRadius * Math.sin(angle);
+                    const y = -pasaranRadius * Math.cos(angle);
+                    
+                    const pasaranItem = document.createElement('div');
+                    pasaranItem.className = 'pasaran-item';
+                    pasaranItem.dataset.index = index;
+                    pasaranItem.style.width = `${pasaranItemSize}px`;
+                    pasaranItem.style.height = `${pasaranItemSize}px`;
+                    
+                    // Modify the display of 6 and 9 to differentiate them
+                    let neptuDisplay = item.neptu;
+                    if (item.neptu === 6) {
+                        neptuDisplay = `<span>6<span style="display:block;font-size:0.3em;line-height:0;margin-top:-8px;">__</span></span>`;
+                    } else if (item.neptu === 9) {
+                        neptuDisplay = `<span>9<span style="display:block;font-size:0.3em;line-height:0;margin-bottom:-8px;">__</span></span>`;
+                    }
+                    
+                    pasaranItem.innerHTML = `
+                        <div class="pasaran-name">${item.name}</div>
+                        <div class="neptu">${neptuDisplay}</div>
+                    `;
+                    
+                    // Calculate angle to make text face outward
+                    const textAngle = (index * (360 / pasaran.length));
+                    
+                    // Position the item and rotate it to face outward
+                    pasaranItem.style.transform = `translate(${x}px, ${y}px) rotate(${textAngle}deg)`;
+                    pasaranCircle.appendChild(pasaranItem);
+                });
+            }
+            
+            // Initial positioning of all items
+            calculateSizes();
+            
+            // Recalculate on window resize
+            window.addEventListener('resize', calculateSizes);
+            
+            // Function to calculate angle based on center point and mouse/touch position
+            function getAngle(element, event) {
+                const rect = element.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+                
+                let clientX, clientY;
+                
+                if (event.type.startsWith('touch')) {
+                    clientX = event.touches[0].clientX;
+                    clientY = event.touches[0].clientY;
+                } else {
+                    clientX = event.clientX;
+                    clientY = event.clientY;
+                }
+                
+                return Math.atan2(clientY - centerY, clientX - centerX) * 180 / Math.PI;
+            }
+            
+            // Rotation start handler
+            function startRotate(element, event, isDraggingFlag, currentRotation) {
+                if (isDraggingFlag === 'outer') {
+                    isDraggingOuter = true;
+                    startAngle = getAngle(daysCircle, event);
+                    startRotation = outerRotation;
+                } else if (isDraggingFlag === 'inner') {
+                    isDraggingInner = true;
+                    startAngle = getAngle(pasaranCircle, event);
+                    startRotation = innerRotation;
+                }
+                
+                // Prevent default behavior to avoid unwanted scrolling
+                event.preventDefault();
+            }
+            
+            // Rotation move handler
+            function rotateElement(event) {
+                if (!isDraggingOuter && !isDraggingInner) return;
+                
+                event.preventDefault();
+                
+                if (isDraggingOuter) {
+                    const currentAngle = getAngle(daysCircle, event);
+                    const angleDiff = currentAngle - startAngle;
+                    outerRotation = startRotation + angleDiff;
+                    daysCircle.style.transform = `rotate(${outerRotation}deg)`;
+                    
+                } else if (isDraggingInner) {
+                    const currentAngle = getAngle(pasaranCircle, event);
+                    const angleDiff = currentAngle - startAngle;
+                    innerRotation = startRotation + angleDiff;
+                    // Need to keep the translate transformation for inner circle
+                    pasaranCircle.style.transform = `translate(-50%, -50%) rotate(${innerRotation}deg)`;
+                }
+            }
+            
+            // Rotation end handler
+            function stopRotate() {
+                isDraggingOuter = false;
+                isDraggingInner = false;
+            }
+            
+            // Mouse events for outer circle
+            daysCircle.addEventListener('mousedown', (event) => {
+                startRotate(daysCircle, event, 'outer', outerRotation);
+            });
+            
+            // Mouse events for inner circle
+            pasaranCircle.addEventListener('mousedown', (event) => {
+                startRotate(pasaranCircle, event, 'inner', innerRotation);
+            });
+            
+            // Touch events for outer circle
+            daysCircle.addEventListener('touchstart', (event) => {
+                startRotate(daysCircle, event, 'outer', outerRotation);
+            });
+            
+            // Touch events for inner circle
+            pasaranCircle.addEventListener('touchstart', (event) => {
+                startRotate(pasaranCircle, event, 'inner', innerRotation);
+            });
+            
+            // Common move and end events
+            document.addEventListener('mousemove', rotateElement);
+            document.addEventListener('touchmove', rotateElement, { passive: false });
+            
+            document.addEventListener('mouseup', stopRotate);
+            document.addEventListener('touchend', stopRotate);
+            document.addEventListener('touchcancel', stopRotate);
+        });
+    </script>
+</body>
+</html>
